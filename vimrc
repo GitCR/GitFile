@@ -2,7 +2,6 @@
 set nocompatible
 filetype off
 
-" 设置行号
 set nu
 
 " UTF-8
