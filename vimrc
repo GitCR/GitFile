@@ -4,6 +4,10 @@ filetype off
 
 set nu
 
+set ruler
+
+set cursorline
+
 " UTF-8
 set encoding=utf-8
 
