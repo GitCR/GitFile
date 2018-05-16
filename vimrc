@@ -8,6 +8,10 @@ set ruler
 
 set cursorline
 
+" set column color
+" set cursorcolumn
+
+
 " UTF-8
 set encoding=utf-8
 
