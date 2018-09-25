@@ -86,3 +86,24 @@ au BufNewFile,BufRead *.py,*.pyw,*.c,*.h, match BadWhitespace /\s\+$/
 "NERDTree key
 map <Tab> :NERDTreeMirror<CR>
 map <Tab> :NERDTreeToggle<CR>
+
+set rtp+=/usr/lib/python3.7/site-packages/powerline/bindings/vim
+" These lines setup the environment to show graphics and colors correctly.
+set nocompatible
+set t_Co=256
+let g:minBufExplForceSyntaxEnable = 1
+" These lines use python3 if you install python3, otherwise use python
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+if ! has('gui_runing')
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au insertEnter * set timeoutlen=0
+		au insertLeave * set timeoutlen=1000
+	augroup END
+endif
+set laststatus=2 " Always display the statusline in all windows
+set guifont=Inconsolata\ for\ powerline:h14
+set noshowmode " Hide the defaults mode test(e.g. --INSERT --below the statusline)
