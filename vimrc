@@ -106,4 +106,33 @@ if ! has('gui_runing')
 endif
 set laststatus=2 " Always display the statusline in all windows
 set guifont=Inconsolata\ for\ powerline:h14
-set noshowmode " Hide the defaults mode test(e.g. --INSERT --below the statusline)
+set noshowmode " Hide the defaults mode test(e.g. --INSERT --below the statusline
+
+"F5 run code
+map <F5> :call CompileRunGcc()<CR>
+    func! CompileRunGcc()
+	exec "w"
+if &filetype == 'c'
+	exec "!g++ % -o %<"
+	exec "!time ./%<"
+elseif &filetype == 'cpp'
+	exec "!g++ % -o %<"
+	exec "!time ./%<"
+elseif &filetype == "java"
+	exec "!javac %"
+	exec "!time java %<"
+elseif &filetype == "sh"
+	:!time zsh %
+elseif &filetype == 'python'
+	exec "!time python %"
+elseif &filetype == 'html'
+	exec "!firefox % &"
+elseif &filetype == 'go'
+	exec "!go build %<"
+	exec "!time go run %"
+elseif &filetype == 'mkd'
+	exec "!~/.vim/markdown.pl % > %.html &"
+	exec "!firefox %.html &"
+endif
+    endfunc
+
