@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block page_content %}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>XH</th>
+        <th>XM</th>
+        <th>KCMC</th>
+        <th>CJ</th>
+    </tr>
+    {% for i in u %}
+    <tr>
+        <td>{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+        <td>{{ i[3] }}</td>
+        <td>{{ i[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
